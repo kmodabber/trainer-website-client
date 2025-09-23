@@ -5,8 +5,6 @@ Built as a practice project to learn React, routing, animations, and UI/UX basic
 
 ---
 
----
-
 ## Tech Stack
 - **React** (CRA / react-scripts)
 - **React Router**, **Framer Motion**, **React Icons**
