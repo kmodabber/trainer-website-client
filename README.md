@@ -5,9 +5,6 @@ Built as a practice project to learn React, routing, animations, and UI/UX basic
 
 ---
 
-## Demo
-_Add screenshots here later if you’d like (e.g. homepage, booking form)._
-
 ---
 
 ## Tech Stack
