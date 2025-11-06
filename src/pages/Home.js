@@ -90,7 +90,7 @@ const Home = () => {
             >
               <div className="hero-profile-image">
                 <img 
-                  src="/profilephoto.jpg" 
+                  src="/profilephoto.JPG" 
                   alt="Khash - Professional Personal Trainer"
                   className="profile-photo"
                 />
