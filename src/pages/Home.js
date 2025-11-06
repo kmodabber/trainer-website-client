@@ -93,6 +93,11 @@ const Home = () => {
                   src="/profilephoto.JPG" 
                   alt="Khash - Professional Personal Trainer"
                   className="profile-photo"
+                  loading="eager"
+                  fetchpriority="high"
+                  width="400"
+                  height="400"
+                  decoding="async"
                 />
               </div>
             </motion.div>
@@ -195,6 +200,10 @@ const Home = () => {
                   src="/BottomOFHome.JPEG" 
                   alt="Khash bodybuilding stage photo"
                   className="home-bottom-photo"
+                  loading="lazy"
+                  width="420"
+                  height="auto"
+                  decoding="async"
                 />
               </div>
             </motion.div>

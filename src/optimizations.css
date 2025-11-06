@@ -1,0 +1,26 @@
+/* Global image and video optimizations */
+img, video { 
+  max-width: 100%; 
+  height: auto; 
+  display: block; 
+}
+
+/* Remove tap highlight on mobile */
+* { 
+  -webkit-tap-highlight-color: transparent; 
+}
+
+/* Ensure proper aspect ratio is maintained during image load */
+img {
+  aspect-ratio: attr(width) / attr(height);
+}
+
+/* Improve font loading performance */
+html {
+  font-display: swap;
+}
+
+/* Reduce layout shift from link underlines */
+a {
+  text-underline-offset: 0.2em;
+}

@@ -1,13 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { FaStar, FaQuoteLeft, FaUser, FaCalendarAlt } from 'react-icons/fa';
+import './Testimonials.css';
 
 const Testimonials = () => {
-  const [testimonials, setTestimonials] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  // Sample testimonials data
-  const sampleTestimonials = [
+  // Testimonials data - static, no loading needed
+  const testimonials = [
     {
       id: '1',
       name: 'Doreen Feiz',
@@ -37,14 +35,6 @@ const Testimonials = () => {
     }
   ];
 
-  useEffect(() => {
-    // Simulate loading testimonials
-    setTimeout(() => {
-      setTestimonials(sampleTestimonials);
-      setLoading(false);
-    }, 1000);
-  }, []);
-
   const renderStars = (rating) => {
     return [...Array(5)].map((_, index) => (
       <FaStar 
@@ -65,21 +55,11 @@ const Testimonials = () => {
     });
   };
 
-  if (loading) {
-    return (
-      <div className="testimonials-page" style={{ paddingTop: '80px', minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        <div style={{ textAlign: 'center' }}>
-          <div className="loading" style={{ width: '40px', height: '40px', margin: '0 auto 1rem' }}></div>
-          <p>Loading testimonials...</p>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div className="testimonials-page" style={{ paddingTop: '80px' }}>
       {/* Hero Section */}
-      <section style={{ 
+      <section className="testimonials-hero" style={{ 
         background: 'linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%)',
         color: 'white',
         padding: '4rem 0',
@@ -100,9 +80,9 @@ const Testimonials = () => {
       </section>
 
       {/* Stats Section */}
-      <section style={{ background: '#1f2937', color: 'white', padding: '3rem 0' }}>
+      <section className="testimonials-stats" style={{ background: '#1f2937', color: 'white', padding: '3rem 0' }}>
         <div className="container">
-          <div className="grid grid-cols-4" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '2rem' }}>
+          <div className="testimonials-stats-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 200px), 1fr))', gap: '2rem' }}>
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -167,7 +147,7 @@ const Testimonials = () => {
       </section>
 
       {/* Testimonials Grid */}
-      <section style={{ padding: '4rem 0' }}>
+      <section className="testimonials-content" style={{ padding: '4rem 0' }}>
         <div className="container">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -182,7 +162,7 @@ const Testimonials = () => {
             </p>
           </motion.div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '2rem' }}>
+          <div className="testimonials-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 350px), 1fr))', gap: '2rem' }}>
             {testimonials.map((testimonial, index) => (
               <motion.div
                 key={testimonial.id}
@@ -272,7 +252,7 @@ const Testimonials = () => {
       </section>
 
       {/* CTA Section */}
-      <section style={{ 
+      <section className="testimonials-cta" style={{ 
         background: 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)',
         color: 'white',
         textAlign: 'center',

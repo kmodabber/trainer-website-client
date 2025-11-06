@@ -92,6 +92,11 @@ const About = () => {
                   src="/TopOfAbout.JPG" 
                   alt="Khash - Bodybuilding stage photo"
                   className="about-hero-profile-photo"
+                  loading="eager"
+                  fetchpriority="high"
+                  width="380"
+                  height="420"
+                  decoding="async"
                 />
               </div>
             </motion.div>
@@ -149,6 +154,10 @@ const About = () => {
                   src="/BottomOfAbout.JPEG" 
                   alt="Khash bodybuilding competition photo"
                   className="about-bottom-photo"
+                  loading="lazy"
+                  width="520"
+                  height="auto"
+                  decoding="async"
                 />
               </div>
             </motion.div>
