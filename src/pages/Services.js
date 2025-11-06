@@ -28,50 +28,7 @@ const Services = () => {
         'Nutrition guidance included',
         'Ongoing support & motivation'
       ],
-      pricing: [
-        { name: 'Single Session', price: '$75', duration: '60 min' },
-        { name: '5-Session Package', price: '$350', duration: '60 min each', savings: 'Save $25' },
-        { name: '10-Session Package', price: '$650', duration: '60 min each', savings: 'Save $100' }
-      ],
       popular: true
-    },
-    {
-      id: 'nutrition-coaching',
-      icon: <FaHeart />,
-      title: 'Nutrition Coaching',
-      description: 'Personalized meal plans and nutrition guidance to complement your fitness journey and achieve optimal results.',
-      features: [
-        'Personalized meal plans',
-        'Macro & calorie guidance',
-        'Food diary analysis',
-        'Grocery shopping lists',
-        'Recipe suggestions',
-        'Weekly check-ins'
-      ],
-      pricing: [
-        { name: 'Initial Consultation', price: '$50', duration: '45 min' },
-        { name: 'Monthly Plan', price: '$150', duration: '4 weeks' },
-        { name: '3-Month Plan', price: '$400', duration: '12 weeks', savings: 'Save $50' }
-      ]
-    },
-    {
-      id: 'group-classes',
-      icon: <FaUsers />,
-      title: 'Group Classes',
-      description: 'High-energy group workouts that combine strength, cardio, and flexibility training in a motivating environment.',
-      features: [
-        'High-intensity interval training',
-        'Strength & conditioning',
-        'Cardio kickboxing',
-        'Yoga & flexibility',
-        'Boot camp style workouts',
-        'Small group sizes (max 12)'
-      ],
-      pricing: [
-        { name: 'Drop-in Class', price: '$25', duration: '45 min' },
-        { name: '10-Class Pass', price: '$200', duration: '45 min each', savings: 'Save $50' },
-        { name: 'Unlimited Monthly', price: '$150', duration: 'Unlimited classes' }
-      ]
     },
     {
       id: 'online-coaching',
@@ -85,30 +42,6 @@ const Services = () => {
         'Progress tracking',
         'Weekly check-ins',
         '24/7 chat support'
-      ],
-      pricing: [
-        { name: 'Basic Plan', price: '$99', duration: 'per month' },
-        { name: 'Premium Plan', price: '$149', duration: 'per month' },
-        { name: 'Elite Plan', price: '$199', duration: 'per month' }
-      ]
-    },
-    {
-      id: 'corporate-wellness',
-      icon: <FaBuilding />,
-      title: 'Corporate Wellness',
-      description: 'Bring fitness and wellness to your workplace with customized programs for teams and organizations.',
-      features: [
-        'On-site fitness classes',
-        'Wellness workshops',
-        'Health assessments',
-        'Team challenges',
-        'Ergonomic assessments',
-        'Stress management sessions'
-      ],
-      pricing: [
-        { name: 'Single Workshop', price: '$500', duration: '2 hours' },
-        { name: 'Monthly Program', price: '$2,000', duration: '4 sessions' },
-        { name: 'Annual Program', price: '$20,000', duration: '48 sessions', savings: 'Save $4,000' }
       ]
     },
     {
@@ -123,11 +56,6 @@ const Services = () => {
         'Post-injury rehab',
         'Senior fitness',
         'Prenatal/postnatal'
-      ],
-      pricing: [
-        { name: '8-Week Program', price: '$600', duration: '8 weeks' },
-        { name: '12-Week Program', price: '$800', duration: '12 weeks' },
-        { name: 'Custom Program', price: 'Contact', duration: 'Tailored' }
       ]
     }
   ];
@@ -188,25 +116,6 @@ const Services = () => {
                   </ul>
                 </div>
 
-                <div className="service-pricing">
-                  <h3>Pricing Options:</h3>
-                  <div className="pricing-options">
-                    {service.pricing.map((option, optionIndex) => (
-                      <div key={optionIndex} className="pricing-option">
-                        <div className="pricing-header">
-                          <h4>{option.name}</h4>
-                          {option.savings && (
-                            <span className="savings-badge">{option.savings}</span>
-                          )}
-                        </div>
-                        <div className="pricing-details">
-                          <span className="price">{option.price}</span>
-                          <span className="duration">{option.duration}</span>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
 
                 <div className="service-cta">
                   <Link to="/booking" className="btn btn-primary">

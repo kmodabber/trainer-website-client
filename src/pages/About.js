@@ -17,32 +17,14 @@ const About = () => {
   const certifications = [
     {
       name: 'Certified Personal Trainer',
-      organization: 'American Council on Exercise (ACE)',
+      organization: 'ISSA (International Sports Sciences Association)',
       year: '2019',
       icon: <FaDumbbell />
-    },
-    {
-      name: 'Nutrition Specialist',
-      organization: 'Precision Nutrition',
-      year: '2020',
-      icon: <FaHeart />
-    },
-    {
-      name: 'Group Fitness Instructor',
-      organization: 'American Fitness Professionals & Associates',
-      year: '2018',
-      icon: <FaUsers />
-    },
-    {
-      name: 'Sports Performance Coach',
-      organization: 'National Strength and Conditioning Association',
-      year: '2021',
-      icon: <FaTrophy />
     }
   ];
 
   const achievements = [
-    { number: '500+', label: 'Happy Clients' },
+    { number: '100+', label: 'Happy Clients' },
     { number: '5+', label: 'Years Experience' },
     { number: '95%', label: 'Success Rate' },
     { number: '1000+', label: 'Training Sessions' }
@@ -137,14 +119,20 @@ const About = () => {
               </p>
               <p>
                 I understand the challenges that come with starting a fitness journey because I've been there. 
-                I've experienced the frustration of not knowing where to begin, the struggle to stay motivated, 
-                and the confusion about what really works. This personal experience drives me to provide the 
-                guidance and support I wish I had when I started.
+                There was a time when I was completely lost in my own fitness journey, feeling out of shape 
+                and unsure of where to begin. I experienced the frustration of not knowing where to start, 
+                the struggle to stay motivated, and the confusion about what really works. But through dedication 
+                and proper guidance, I transformed my own body and mindset.
+              </p>
+              <p>
+                This personal transformation led me to compete in nationals men's physique, where I placed 3rd,  
+                an achievement that taught me the power of discipline, proper training, and believing in yourself. 
+                This personal experience drives me to provide the guidance and support I wish I had when I started.
               </p>
               <p>
                 Today, I'm proud to have helped hundreds of clients achieve remarkable transformations, 
                 not just in their physical appearance, but in their confidence, energy levels, and overall 
-                quality of life. My approach goes beyond just workouts – I help you build sustainable, 
+                quality of life. My approach goes beyond just workouts, I help you build sustainable, 
                 healthy habits that last a lifetime.
               </p>
             </motion.div>
@@ -308,10 +296,10 @@ const About = () => {
               viewport={{ once: true }}
               className="philosophy-image"
             >
-              <div className="philosophy-placeholder">
+              <Link to="/testimonials" className="philosophy-placeholder" style={{ textDecoration: 'none', color: 'inherit', cursor: 'pointer' }}>
                 <FaTrophy />
                 <p>Success Stories</p>
-              </div>
+              </Link>
             </motion.div>
           </div>
         </div>

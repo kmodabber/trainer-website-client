@@ -36,18 +36,9 @@ const Footer = () => {
               Professional guidance for your health and wellness journey.
             </p>
             <div className="social-links">
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                <FaFacebook />
-              </a>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                <FaInstagram />
-              </a>
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-                <FaTwitter />
-              </a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                <FaLinkedin />
-              </a>
+            <a href="https://www.instagram.com/khashfit/?hl=en" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                    <FaInstagram />
+            </a> 
             </div>
           </div>
 
@@ -69,10 +60,7 @@ const Footer = () => {
             <h3>Services</h3>
             <ul>
               <li><Link to="/services#personal-training">Personal Training</Link></li>
-              <li><Link to="/services#nutrition-coaching">Nutrition Coaching</Link></li>
-              <li><Link to="/services#group-classes">Group Classes</Link></li>
               <li><Link to="/services#online-coaching">Online Coaching</Link></li>
-              <li><Link to="/services#corporate-wellness">Corporate Wellness</Link></li>
               <li><Link to="/services#specialized-programs">Specialized Programs</Link></li>
             </ul>
           </div>
@@ -84,21 +72,21 @@ const Footer = () => {
               <FaPhone className="contact-icon" />
               <div>
                 <p className="contact-label">Phone</p>
-                <p className="contact-value">+1 (555) 123-4567</p>
+                <p className="contact-value">+1 (604) 618-8524</p>
               </div>
             </div>
             <div className="contact-item">
               <FaEnvelope className="contact-icon" />
               <div>
                 <p className="contact-label">Email</p>
-                <p className="contact-value">khash@trainer.com</p>
+                <p className="contact-value">kh.modabber@gmail.com</p>
               </div>
             </div>
             <div className="contact-item">
               <FaMapMarkerAlt className="contact-icon" />
               <div>
                 <p className="contact-label">Location</p>
-                <p className="contact-value">Fitness Studio, Downtown Area</p>
+                <p className="contact-value">West Vancouver</p>
               </div>
             </div>
           </div>

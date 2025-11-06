@@ -17,25 +17,22 @@ const Home = () => {
     {
       icon: <FaDumbbell />,
       title: 'Personal Training',
-      description: 'One-on-one customized workout plans designed specifically for your goals and fitness level.',
-      price: 'From $75/session'
+      description: 'One-on-one customized workout plans designed specifically for your goals and fitness level.'
     },
     {
-      icon: <FaHeart />,
-      title: 'Nutrition Coaching',
-      description: 'Personalized meal plans and nutrition guidance to complement your fitness journey.',
-      price: 'From $50/session'
+      icon: <FaPlay />,
+      title: 'Online Coaching',
+      description: 'Virtual training and coaching sessions for clients who prefer to work out from home or have busy schedules.'
     },
     {
-      icon: <FaUsers />,
-      title: 'Group Classes',
-      description: 'High-energy group workouts that combine strength, cardio, and flexibility training.',
-      price: 'From $25/class'
+      icon: <FaStar />,
+      title: 'Specialized Programs',
+      description: 'Targeted programs for specific goals including weight loss, muscle building, sports performance, and rehabilitation.'
     }
   ];
 
   const stats = [
-    { number: '500+', label: 'Happy Clients' },
+    { number: '100+', label: 'Happy Clients' },
     { number: '5+', label: 'Years Experience' },
     { number: '95%', label: 'Success Rate' },
     { number: '24/7', label: 'Support' }
@@ -43,16 +40,16 @@ const Home = () => {
 
   const testimonials = [
     {
-      name: 'Sarah Johnson',
+      name: 'Kamyar Modabber',
       rating: 5,
-      comment: 'Khash transformed my fitness journey! His personalized approach and motivation helped me achieve results I never thought possible.',
+      comment: 'Khash\'s personal training transformed my approach to fitness completely. His attention to form and personalized programs helped me achieve goals I never thought possible.',
       service: 'Personal Training'
     },
     {
-      name: 'Mike Chen',
+      name: 'Sam Sayari',
       rating: 5,
-      comment: 'Amazing trainer! Khash knows exactly how to push you to your limits while keeping workouts fun and engaging.',
-      service: 'Strength Training'
+      comment: 'Khash\'s specialized program for my rugby season was incredible. He designed a comprehensive plan that enhanced my performance, speed, and endurance on the field.',
+      service: 'Specialized Programs'
     }
   ];
 
@@ -130,7 +127,6 @@ const Home = () => {
                 <div className="service-icon">{service.icon}</div>
                 <h3>{service.title}</h3>
                 <p>{service.description}</p>
-                <div className="service-price">{service.price}</div>
                 <Link to="/services" className="btn btn-primary">
                   Learn More
                 </Link>
@@ -140,7 +136,7 @@ const Home = () => {
 
           <div className="text-center mt-lg">
             <Link to="/services" className="btn btn-outline btn-lg">
-              View All Services
+              View Services
             </Link>
           </div>
         </div>

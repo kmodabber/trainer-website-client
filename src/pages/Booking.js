@@ -23,6 +23,9 @@ const Booking = () => {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
+  // Feature flag: set to `true` once email / booking backend is configured
+  const bookingsEnabled = false;
+  const disabledMessage = "Booking requests are temporarily disabled while email/booking setup is completed. Please call or message via Instagram to arrange a session.";
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -34,6 +37,12 @@ const Booking = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    // If booking/email functionality isn't available yet, show a friendly message and don't submit
+    if (!bookingsEnabled) {
+      setSubmitStatus({ type: 'info', message: disabledMessage });
+      return;
+    }
+
     setIsSubmitting(true);
     setSubmitStatus(null);
 
@@ -50,10 +59,7 @@ const Booking = () => {
 
   const services = [
     'Personal Training',
-    'Nutrition Coaching',
-    'Group Classes',
     'Online Coaching',
-    'Corporate Wellness',
     'Specialized Programs'
   ];
 
@@ -98,6 +104,18 @@ const Booking = () => {
               viewport={{ once: true }}
             >
               <h2 style={{ textAlign: 'center', marginBottom: '2rem' }}>Schedule Your Session</h2>
+              {!bookingsEnabled && (
+                <div style={{
+                  background: '#fff7ed',
+                  border: '1px solid #ffe4b5',
+                  padding: '0.75rem 1rem',
+                  borderRadius: '6px',
+                  marginBottom: '1rem',
+                  textAlign: 'center'
+                }}>
+                  <strong>Note:</strong> {disabledMessage}
+                </div>
+              )}
               
               {submitStatus && (
                 <div className={`message message-${submitStatus.type}`} style={{ marginBottom: '2rem' }}>
@@ -126,6 +144,7 @@ const Booking = () => {
                       onChange={handleInputChange}
                       className="form-input"
                       required
+                      disabled={!bookingsEnabled}
                     />
                   </div>
                   
@@ -142,6 +161,7 @@ const Booking = () => {
                       onChange={handleInputChange}
                       className="form-input"
                       required
+                      disabled={!bookingsEnabled}
                     />
                   </div>
                 </div>
@@ -160,6 +180,7 @@ const Booking = () => {
                       onChange={handleInputChange}
                       className="form-input"
                       required
+                      disabled={!bookingsEnabled}
                     />
                   </div>
                   
@@ -175,6 +196,7 @@ const Booking = () => {
                       onChange={handleInputChange}
                       className="form-select"
                       required
+                      disabled={!bookingsEnabled}
                     >
                       <option value="">Select a service</option>
                       {services.map((service, index) => (
@@ -199,6 +221,7 @@ const Booking = () => {
                       className="form-input"
                       min={new Date().toISOString().split('T')[0]}
                       required
+                      disabled={!bookingsEnabled}
                     />
                   </div>
                   
@@ -214,6 +237,7 @@ const Booking = () => {
                       onChange={handleInputChange}
                       className="form-select"
                       required
+                      disabled={!bookingsEnabled}
                     >
                       <option value="">Select a time</option>
                       {timeSlots.map((time, index) => (
@@ -233,16 +257,18 @@ const Booking = () => {
                     className="form-textarea"
                     rows="4"
                     placeholder="Tell me about your fitness goals, any medical conditions, or special requirements..."
-                  ></textarea>
+                  disabled={!bookingsEnabled}></textarea>
                 </div>
 
                 <button 
                   type="submit" 
                   className="btn btn-primary btn-lg"
                   style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem' }}
-                  disabled={isSubmitting}
+                  disabled={!bookingsEnabled || isSubmitting}
                 >
-                  {isSubmitting ? (
+                  {!bookingsEnabled ? (
+                    'Booking Temporarily Disabled'
+                  ) : isSubmitting ? (
                     <>
                       <span className="loading"></span>
                       Submitting...

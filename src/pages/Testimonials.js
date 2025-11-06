@@ -10,56 +10,29 @@ const Testimonials = () => {
   const sampleTestimonials = [
     {
       id: '1',
-      name: 'Sarah Johnson',
+      name: 'Doreen Feiz',
       rating: 5,
-      comment: 'Khash transformed my fitness journey! His personalized approach and motivation helped me achieve results I never thought possible. I lost 30 pounds and gained so much confidence.',
+      comment: 'Khash\'s personal training transformed my approach to fitness completely. His attention to form, personalized programs, and constant motivation helped me achieve goals I never thought possible. The one-on-one sessions are incredibly effective and I\'ve seen remarkable progress in both strength and confidence.',
       service: 'Personal Training',
-      date: '2024-01-15',
+      date: '2025-09-05',
       verified: true
     },
     {
       id: '2',
-      name: 'Mike Chen',
+      name: 'Sorena Shekarnoosh',
       rating: 5,
-      comment: 'Amazing trainer! Khash knows exactly how to push you to your limits while keeping workouts fun and engaging. His nutrition advice was game-changing.',
-      service: 'Strength Training',
-      date: '2024-01-10',
+      comment: 'Online coaching with Khash has been a game-changer for my fitness journey. Despite being virtual, his sessions feel incredibly personal and effective. He provides detailed feedback, tracks my progress meticulously, and keeps me accountable. The flexibility of online coaching fits perfectly with my busy schedule.',
+      service: 'Online Coaching',
+      date: '2025-09-05',
       verified: true
     },
     {
       id: '3',
-      name: 'Emily Rodriguez',
+      name: 'Sam Sayari',
       rating: 5,
-      comment: 'Khash helped me build confidence and strength. His nutrition advice and workout plans are top-notch! I feel stronger and healthier than ever.',
-      service: 'Weight Loss Program',
-      date: '2024-01-05',
-      verified: true
-    },
-    {
-      id: '4',
-      name: 'David Thompson',
-      rating: 5,
-      comment: 'Professional, knowledgeable, and motivating. Khash helped me prepare for my marathon and I achieved my personal best time. Highly recommended!',
-      service: 'Sports Performance',
-      date: '2023-12-20',
-      verified: true
-    },
-    {
-      id: '5',
-      name: 'Lisa Parker',
-      rating: 5,
-      comment: 'The group classes are fantastic! Great energy, challenging workouts, and Khash makes everyone feel welcome regardless of fitness level.',
-      service: 'Group Classes',
-      date: '2023-12-15',
-      verified: true
-    },
-    {
-      id: '6',
-      name: 'James Wilson',
-      rating: 5,
-      comment: 'Online coaching with Khash was perfect during the pandemic. He adapted my workouts for home and kept me motivated throughout.',
-      service: 'Online Coaching',
-      date: '2023-12-01',
+      comment: 'Khash\'s specialized program for my rugby season was absolutely incredible. He designed a comprehensive training plan that enhanced my performance, speed, and endurance on the field. His understanding of sports-specific training and attention to detail helped me reach peak condition for the season. Highly recommend his specialized programs for any athlete.',
+      service: 'Specialized Programs',
+      date: '2025-09-05',
       verified: true
     }
   ];
@@ -138,7 +111,7 @@ const Testimonials = () => {
               style={{ textAlign: 'center' }}
             >
               <div style={{ fontSize: '2.25rem', fontWeight: '800', color: '#f59e0b', marginBottom: '0.5rem' }}>
-                500+
+                100+
               </div>
               <div style={{ fontSize: '1.125rem', color: '#e5e7eb', textTransform: 'uppercase', letterSpacing: '1px' }}>
                 Happy Clients

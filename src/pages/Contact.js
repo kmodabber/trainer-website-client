@@ -23,6 +23,9 @@ const Contact = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
+  // Feature flag: set to `true` once email / backend mailer is configured
+  const emailEnabled = false;
+  const disabledMessage = "Contact form and email functionality are temporarily disabled while email setup is completed. Please call or message via Instagram for now.";
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -34,6 +37,12 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    // If email functionality isn't set up yet, short-circuit and show a friendly message
+    if (!emailEnabled) {
+      setSubmitStatus({ type: 'info', message: disabledMessage });
+      return;
+    }
+
     setIsSubmitting(true);
     setSubmitStatus(null);
 
@@ -68,19 +77,19 @@ const Contact = () => {
     {
       icon: <FaPhone />,
       title: 'Phone',
-      value: '+1 (555) 123-4567',
-      link: 'tel:+15551234567'
+      value: '+1 (604) 618-8524',
+      link: 'tel:+16046188524'
     },
     {
       icon: <FaEnvelope />,
       title: 'Email',
-      value: 'khash@trainer.com',
-      link: 'mailto:khash@trainer.com'
+      value: 'kh.modabber@gmail.com',
+      link: 'mailto:kh.modabber@gmail.com'
     },
     {
       icon: <FaMapMarkerAlt />,
       title: 'Location',
-      value: 'Fitness Studio, Downtown Area',
+      value: 'West Vancouver',
       link: null
     }
   ];
@@ -93,10 +102,7 @@ const Contact = () => {
 
   const services = [
     'Personal Training',
-    'Nutrition Coaching',
-    'Group Classes',
     'Online Coaching',
-    'Corporate Wellness',
     'Specialized Programs'
   ];
 
@@ -134,6 +140,17 @@ const Contact = () => {
             >
               <h2>Send Me a Message</h2>
               <p>Fill out the form below and I'll get back to you within 24 hours.</p>
+              {!emailEnabled && (
+                <div className="temp-disabled-banner" style={{
+                  background: '#fff7ed',
+                  border: '1px solid #ffe4b5',
+                  padding: '0.75rem 1rem',
+                  borderRadius: '6px',
+                  marginBottom: '1rem'
+                }}>
+                  <strong>Note:</strong> {disabledMessage}
+                </div>
+              )}
               
               {submitStatus && (
                 <div className={`message message-${submitStatus.type}`}>
@@ -153,6 +170,7 @@ const Contact = () => {
                       onChange={handleInputChange}
                       className="form-input"
                       required
+                      disabled={!emailEnabled}
                     />
                   </div>
                   
@@ -166,6 +184,7 @@ const Contact = () => {
                       onChange={handleInputChange}
                       className="form-input"
                       required
+                      disabled={!emailEnabled}
                     />
                   </div>
                 </div>
@@ -180,6 +199,7 @@ const Contact = () => {
                       value={formData.phone}
                       onChange={handleInputChange}
                       className="form-input"
+                      disabled={!emailEnabled}
                     />
                   </div>
                   
@@ -191,6 +211,7 @@ const Contact = () => {
                       value={formData.service}
                       onChange={handleInputChange}
                       className="form-select"
+                      disabled={!emailEnabled}
                     >
                       <option value="">Select a service</option>
                       {services.map((service, index) => (
@@ -211,15 +232,18 @@ const Contact = () => {
                     rows="5"
                     placeholder="Tell me about your fitness goals, questions, or how I can help you..."
                     required
+                    disabled={!emailEnabled}
                   ></textarea>
                 </div>
 
                 <button 
                   type="submit" 
                   className="btn btn-primary btn-lg"
-                  disabled={isSubmitting}
+                  disabled={!emailEnabled || isSubmitting}
                 >
-                  {isSubmitting ? (
+                  { !emailEnabled ? (
+                    'Contact Temporarily Disabled'
+                  ) : isSubmitting ? (
                     <>
                       <span className="loading"></span>
                       Sending...
@@ -277,17 +301,8 @@ const Contact = () => {
               <div className="social-links">
                 <h3>Follow Me</h3>
                 <div className="social-icons">
-                  <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                    <FaFacebook />
-                  </a>
-                  <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                  <a href="https://www.instagram.com/khashfit/?hl=en" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                     <FaInstagram />
-                  </a>
-                  <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-                    <FaTwitter />
-                  </a>
-                  <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                    <FaLinkedin />
                   </a>
                 </div>
               </div>
@@ -307,12 +322,12 @@ const Contact = () => {
             className="map-section text-center"
           >
             <h2>Visit My Studio</h2>
-            <p>Located in the heart of downtown, my fitness studio is easily accessible and equipped with everything you need for an effective workout.</p>
+            <p>Located in West Vancouver, this fitness studio is easily accessible and equipped with everything you need for an effective workout.</p>
             
             <div className="map-placeholder">
               <FaMapMarkerAlt />
               <p>Interactive Map Coming Soon</p>
-              <p className="map-address">Fitness Studio, Downtown Area</p>
+              <p className="map-address">Fitness Studio, West Vancouver</p>
             </div>
           </motion.div>
         </div>
