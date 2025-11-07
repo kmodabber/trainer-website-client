@@ -8,6 +8,7 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
   const navRef = useRef(null);
+  const toggleRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,15 +24,47 @@ const Navbar = () => {
     setIsOpen(false);
   }, [location]);
 
-  // Close when clicking/tapping outside (works on iOS)
+  // Prevent body scroll when menu is open on mobile
   useEffect(() => {
-    function handlePointerDown(e) {
-      if (!navRef.current) return;
-      if (!navRef.current.contains(e.target)) setIsOpen(false);
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
     }
-    document.addEventListener('pointerdown', handlePointerDown, true);
-    return () => document.removeEventListener('pointerdown', handlePointerDown, true);
-  }, []);
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
+
+  // Close when clicking/tapping outside (iOS-friendly)
+  useEffect(() => {
+    if (!isOpen) return;
+
+    function handleClickOutside(e) {
+      // Don't close if clicking the toggle button
+      if (toggleRef.current && toggleRef.current.contains(e.target)) {
+        return;
+      }
+      // Don't close if clicking inside the menu
+      if (navRef.current && navRef.current.contains(e.target)) {
+        return;
+      }
+      // Close the menu if clicking outside
+      setIsOpen(false);
+    }
+
+    // Use a small delay to avoid immediate closure on iOS
+    const timeoutId = setTimeout(() => {
+      document.addEventListener('click', handleClickOutside, true);
+      document.addEventListener('touchstart', handleClickOutside, true);
+    }, 100);
+
+    return () => {
+      clearTimeout(timeoutId);
+      document.removeEventListener('click', handleClickOutside, true);
+      document.removeEventListener('touchstart', handleClickOutside, true);
+    };
+  }, [isOpen]);
 
   const navLinks = [
     { to: '/', label: 'Home' },
@@ -57,7 +90,10 @@ const Navbar = () => {
               key={link.to}
               to={link.to}
               className={`navbar-link ${location.pathname === link.to ? 'active' : ''}`}
-              onClick={() => setIsOpen(false)}
+              onClick={(e) => {
+                e.stopPropagation();
+                setIsOpen(false);
+              }}
             >
               {link.label}
             </Link>
@@ -71,8 +107,12 @@ const Navbar = () => {
         </div>
 
         <button
+          ref={toggleRef}
           className="navbar-toggle"
-          onClick={() => setIsOpen(!isOpen)}
+          onClick={(e) => {
+            e.stopPropagation();
+            setIsOpen(!isOpen);
+          }}
           aria-label="Toggle navigation menu"
           aria-expanded={isOpen}
           aria-controls="primary-navigation"
