@@ -5,6 +5,7 @@ import './Testimonials.css';
 
 const Testimonials = () => {
   // Testimonials data - static, no loading needed
+  // Todo: Replace with real data fetching if needed
   const testimonials = [
     {
       id: '1',
